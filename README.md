@@ -33,6 +33,9 @@ This test estimates the possible compressed length of the file, assuming an opti
 ### Estimation of Pi (π)
 One of the more intriguing tests in VisualRT is the estimation of π using the contents of the file. The file is interpreted as a series of 6-byte sequences, with the first 3 bytes used as the x-coordinate and the next 3 bytes as the y-coordinate on a 2D plane. The number of points that fall inside a unit circle (with radius 1) is used to estimate π, drawing from Monte Carlo methods. The closer the estimate is to the true value of π, the more uniform the distribution of bytes in the file might be.
 
+### Highlighting outliers
+
+
 ## Visual fingerprint
 **VisualRT** also includes a graphical panel that provides a visual **"fingerprint"** of the file's byte content. This square panel, with adjustable dimensions limited by the screen size, displays the byte value distribution, offering a visual representation of potential patterns in the data. These patterns might indicate non-uniform distributions that could go unnoticed by statistical indices alone. Additionally, the panel includes a contrast adjustment feature, allowing users to amplify subtle, nearly imperceptible patterns, providing deeper insight into the structure of the file’s content.
 
