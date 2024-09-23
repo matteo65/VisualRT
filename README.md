@@ -6,10 +6,10 @@ It also allows you to view the "fingerprint" of the file, a sort of hash value i
 
 ## Statistical tests
 
-### Minimum and Maximum Byte Frequency
+### Min, Max and Average μ of Byte Frequency
 VisualRT calculates the minimum and maximum frequency of bytes within the file. This test measures how often the least frequent and most frequent byte values (ranging from 0 to 255) occur in the file. A high maximum frequency might indicate that certain byte values are overrepresented, while a low minimum frequency could suggest that some byte values are nearly absent.
 
-### Variance of Byte Distribution σ<sup>2</sup>
+### Variance σ<sup>2</sup> of Byte Distribution
 The **variance** measures how much the byte frequency distribution spreads out from the mean frequency. It gives an indication of the dispersion of the byte values. A low variance means that the byte frequencies are relatively uniform, while a high variance indicates that some byte values appear much more frequently than others.
 
 ### Standard Deviation σ
