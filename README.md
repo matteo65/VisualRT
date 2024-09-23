@@ -9,16 +9,16 @@ It also allows you to view the "fingerprint" of the file, a sort of hash value i
 ### Minimum and Maximum Byte Frequency
 VisualRT calculates the minimum and maximum frequency of bytes within the file. This test measures how often the least frequent and most frequent byte values (ranging from 0 to 255) occur in the file. A high maximum frequency might indicate that certain byte values are overrepresented, while a low minimum frequency could suggest that some byte values are nearly absent.
 
-### Variance of Byte Distribution
+### Variance of Byte Distribution σ<sup>2</sup>
 The **variance** measures how much the byte frequency distribution spreads out from the mean frequency. It gives an indication of the dispersion of the byte values. A low variance means that the byte frequencies are relatively uniform, while a high variance indicates that some byte values appear much more frequently than others.
 
-### Standard Deviation
+### Standard Deviation σ
 **Standard deviation** is the square root of the variance and provides an easy-to-understand measure of dispersion. It indicates how much, on average, the byte frequencies deviate from the mean. If the standard deviation is high, the distribution is uneven, with significant outliers, while a low value suggests more uniformity in byte usage.
 
-### Coefficient of Variation
+### Coefficient of Variation <sup>σ</sup>/<sub>μ</sub>
 The **coefficient of variation** (CV) is calculated as the ratio of the standard deviation to the mean byte frequency. This relative measure of variability allows comparison across different datasets. A high CV indicates that the byte frequencies vary greatly relative to the average frequency, suggesting a non-random or skewed distribution of bytes.
 
-### Chi-Square Test
+### Chi-Square Test 𝛘<sup>2</sup>
 The **chi-square** test is used to evaluate whether the byte distribution significantly deviates from a uniform distribution. It compares the observed frequencies of each byte with the expected frequencies under the assumption of uniform randomness. A high chi-square value means the distribution deviates significantly from randomness, suggesting non-randomness or structured data in the file.
 
 ### Arithmetic Mean
