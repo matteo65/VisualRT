@@ -36,6 +36,13 @@ One of the more intriguing tests in VisualRT is the estimation of π using the c
 ### Average of Contiguous Byte Pairs
 This test calculates the average of all contiguous byte pairs in the file, treating each pair as a 16-bit unsigned number. By interpreting every two adjacent bytes as a single 16-bit value, ranging from 0 to 65535, the test evaluates the overall distribution of these values. For a file with a truly random byte distribution, the expected average should approach 32767.5, which is the midpoint of the possible 16-bit range. Deviations from this expected average can indicate non-random patterns or structured data, helping to assess the file's randomness level.
 
+## 4-Byte Sequence Collision Test
+This test analyzes the file by dividing it into 4-byte sequences and counting how many times each sequence appears (collisions). Each 4-byte sequence is treated as a unique 32-bit value, with possible values ranging from 0 to 2<sup>32</sup>-1
+In a file of length. For a file with a completely random byte distribution, the expected number of collisions can be estimated using the birthday problem analogy.
+​
+ 
+This test helps evaluate the randomness of the file. A large number of collisions could indicate non-random patterns or redundancy in the data, whereas fewer collisions suggest a higher degree of randomness.
+
 ### Highlighting outliers
 If the results of the tests fall outside a threshold or range deemed appropriate for a uniform byte distribution, they are highlighted in red. This visual cue helps users quickly identify irregularities or deviations from expected randomness in the file's data.
 
