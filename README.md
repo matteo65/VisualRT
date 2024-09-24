@@ -38,8 +38,7 @@ This test calculates the average of all contiguous byte pairs in the file, treat
 
 ### 4-Byte Sequence Collision Test
 This test analyzes the file by dividing it into 4-byte sequences and counting how many times each sequence appears (collisions). Each 4-byte sequence is treated as a unique 32-bit value, with possible values ranging from 0 to 2<sup>32</sup>-1
-In a file of length. For a file with a completely random byte distribution, the expected number of collisions can be estimated using the birthday problem analogy.
-​This test helps evaluate the randomness of the file. A number of collisions significantly different from the expected number could indicate non-random patterns or redundancy in the data, while a number of collisions close to the expected value suggests a higher degree of randomness.
+In a file of length. For a file with a completely random byte distribution, the expected number of collisions can be estimated using the birthday problem analogy. ​This test helps evaluate the randomness of the file. A number of collisions significantly different from the expected number could indicate non-random patterns or redundancy in the data, while a number of collisions close to the expected value suggests a higher degree of randomness.
 
 ### Highlighting outliers
 If the results of the tests fall outside a threshold or range deemed appropriate for a uniform byte distribution, they are highlighted in red. This visual cue helps users quickly identify irregularities or deviations from expected randomness in the file's data.
