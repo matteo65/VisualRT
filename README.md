@@ -39,9 +39,19 @@ In order to have a text version of the test results, VisualRT also prints the va
 **VisualRT** also includes a graphical panel that provides a visual **"fingerprint"** of the file's byte content. This square panel, with adjustable dimensions limited by the screen size, displays the byte value distribution, offering a visual representation of potential patterns in the data. These patterns might indicate non-uniform distributions that could go unnoticed by statistical indices alone. Additionally, the panel includes a contrast adjustment feature, allowing users to amplify subtle, nearly imperceptible patterns, providing deeper insight into the structure of the file’s content.<br>
 Here are some examples of visual imprint of some file types, where the patterns are highlighted.
 
-|File ASCII txt|File Windows .exe|
+|File ASCII txt|File Windows EXE|
 |:--- |:--- |
 |![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/ASCII_txt_file.png)|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/typical_windows_exe.png)|
+
+|Image PNG|Image JPG|
+|:--- |:--- |
+|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/typical_png_image.png)|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/typical_jpg_image.png)|
+
+|File mp3|File multi zip|
+|:--- |:--- |
+|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/file_mp3.png)|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/zip_multi_file.png)|
+
+
 
 
 ## Conclusion
