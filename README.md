@@ -5,6 +5,22 @@ It also allows you to view the "fingerprint" of the file, a sort of hash value i
 ![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/screenshot1.png)<br>
 
 ## Statistical tests
+VisualRT conducts a total of 14 tests, which are divided into two main categories: frequency-based tests that ignore byte positions and tests that depend on the distribution of bytes.
+
+###A) First Group: Byte Frequency Tests
+This group focuses on analyzing the frequency of byte occurrences within the data, without considering the order in which the bytes appear. These tests are designed to assess various statistical properties of the byte frequency. The tests in this group are:
+
+1.	**Minimum Frequency**: This test measures the smallest frequency of any byte in the data, indicating which byte has the least occurrences.
+2.	**Maximum Frequency**: This test calculates the highest frequency of any byte in the data, identifying the byte that appears the most frequently.
+3.	**Average Frequency μ**: This is the mean frequency of all bytes, providing a general sense of how evenly bytes are distributed in the dataset.
+4.	**Variance σ<sup>2</sup>**: This test calculates the variance of the byte frequencies, measuring the spread or dispersion of frequencies from their mean.
+5.	**Standard Deviation σ**: The standard deviation is a common statistical measure that shows how much the byte frequencies deviate from the average frequency. It is the square root of the variance.
+6.	**Coefficient of Variation <sup>σ</sup>/<sub>μ</sub>**: This is the ratio of the standard deviation to the mean frequency, providing a normalized measure of the dispersion relative to the average frequency.
+7.	**Chi-Square 𝛘<sup>2</sup>**: This statistical test compares the observed byte frequencies to an expected uniform distribution, assessing whether the data deviates from randomness.
+8.	**Mean Byte Value (Sum)**: This test computes the sum of all byte values in the dataset, providing a raw measure of the average byte value.
+9.	**Entropy**: Entropy measures the randomness or uncertainty in the byte distribution. Higher entropy indicates a more random or uniform distribution of byte values.
+10.	**Estimated Compressed Size**: This test estimates how compressible the data is, based on the byte frequency distribution, providing an indication of how much the data could potentially be reduced in size.
+
 
 ### Min, Max and Average μ of Byte Frequency
 VisualRT calculates the minimum and maximum frequency of bytes within the file. This test measures how often the least frequent and most frequent byte values (ranging from 0 to 255) occur in the file. A high maximum frequency might indicate that certain byte values are overrepresented, while a low minimum frequency could suggest that some byte values are nearly absent.
