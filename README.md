@@ -17,43 +17,17 @@ This group focuses on analyzing the frequency of byte occurrences within the dat
 5.	**Standard Deviation σ**: The standard deviation is a common statistical measure that shows how much the byte frequencies deviate from the average frequency. It is the square root of the variance.
 6.	**Coefficient of Variation <sup>σ</sup>/<sub>μ</sub>**: This is the ratio of the standard deviation to the mean frequency, providing a normalized measure of the dispersion relative to the average frequency.
 7.	**Chi-Square 𝛘<sup>2</sup>**: This statistical test compares the observed byte frequencies to an expected uniform distribution, assessing whether the data deviates from randomness.
-8.	**Mean Byte Value (Sum)**: This test computes the sum of all byte values in the dataset, providing a raw measure of the average byte value.
+8.	**Mean Byte Value (Sum)**: This test computes the sum of all byte values in the dataset, providing a raw measure of the average byte value. If the data are close to random, this should be about 127.5.
 9.	**Entropy**: Entropy measures the randomness or uncertainty in the byte distribution. Higher entropy indicates a more random or uniform distribution of byte values.
 10.	**Estimated Compressed Size**: This test estimates how compressible the data is, based on the byte frequency distribution, providing an indication of how much the data could potentially be reduced in size.
 
+### B) Second Group: Distribution-Dependent Tests
+The second group of tests examines the actual distribution of bytes within the data, meaning that the relative positions and sequences of bytes are considered. These tests are more focused on patterns that arise from how the bytes are ordered. The tests in this group are:
 
-### Min, Max and Average μ of Byte Frequency
-VisualRT calculates the minimum and maximum frequency of bytes within the file. This test measures how often the least frequent and most frequent byte values (ranging from 0 to 255) occur in the file. A high maximum frequency might indicate that certain byte values are overrepresented, while a low minimum frequency could suggest that some byte values are nearly absent.
-
-### Variance σ<sup>2</sup> of Byte Distribution
-The **variance** measures how much the byte frequency distribution spreads out from the mean frequency. It gives an indication of the dispersion of the byte values. A low variance means that the byte frequencies are relatively uniform, while a high variance indicates that some byte values appear much more frequently than others.
-
-### Standard Deviation σ
-**Standard deviation** is the square root of the variance and provides an easy-to-understand measure of dispersion. It indicates how much, on average, the byte frequencies deviate from the mean. If the standard deviation is high, the distribution is uneven, with significant outliers, while a low value suggests more uniformity in byte usage.
-
-### Coefficient of Variation <sup>σ</sup>/<sub>μ</sub>
-The **coefficient of variation** (CV) is calculated as the ratio of the standard deviation to the mean byte frequency. This relative measure of variability allows comparison across different datasets. A high CV indicates that the byte frequencies vary greatly relative to the average frequency, suggesting a non-random or skewed distribution of bytes.
-
-### Chi-Square Test 𝛘<sup>2</sup>
-The **chi-square** test is used to evaluate whether the byte distribution significantly deviates from a uniform distribution. It compares the observed frequencies of each byte with the expected frequencies under the assumption of uniform randomness. A high chi-square value means the distribution deviates significantly from randomness, suggesting non-randomness or structured data in the file.
-
-### Arithmetic Mean
-This is simply the result of summing the all the bytes in the file and dividing by the file length. If the data are close to random, this should be about 127.5. If the mean departs from this value, the values are consistently high or low
-
-### Entropy (Bits per Character)
-**Entropy** is a key measure of randomness. It calculates the average number of bits needed to represent each byte in the file, based on the byte frequencies. The higher the entropy, the closer the byte distribution is to uniform, indicating higher randomness. Lower entropy values suggest that the file is more predictable or contains redundant information. Entropy is expressed in bits per character (or per byte).
-
-### Estimated Compressed Length
-This test estimates the possible compressed length of the file, assuming an optimal compression algorithm based on the file’s entropy. The idea is that if each character could be represented by its entropy-based bit length, this would give a lower bound on the file's compressed size. It provides insight into the compressibility of the file’s data.
-
-### Estimation of Pi (π)
-One of the more intriguing tests in VisualRT is the estimation of π using the contents of the file. The file is interpreted as a series of 6-byte sequences, with the first 3 bytes used as the x-coordinate and the next 3 bytes as the y-coordinate on a 2D plane. The number of points that fall inside a unit circle (with radius 1) is used to estimate π, drawing from **Monte Carlo** methods. The closer the estimate is to the true value of π, the more uniform the distribution of bytes in the file might be.
-
-### Average of Contiguous Byte Pairs
-This test calculates the average of all contiguous byte pairs in the file, treating each pair as a 16-bit unsigned number. In a file of length n (n > 2), there are n − 1 overlapping 2-byte sequences. By interpreting every two adjacent bytes as a single 16-bit value, ranging from 0 to 65535, the test evaluates the overall distribution of these values. For a file with a truly random byte distribution, the expected average should approach 32767.5, which is the midpoint of the possible 16-bit range. Deviations from this expected average can indicate non-random patterns or structured data, helping to assess the file's randomness level.
-
-### 4-Byte Sequence Collision Test
-This test analyzes the file by dividing it into 4-byte sequences and counting how many times each sequence appears (collisions). Each 4-byte sequence is treated as a unique 32-bit value, with possible values ranging from 0 to 2<sup>32</sup>-1. For a file with a completely random byte distribution, the expected number of collisions can be estimated using the **birthday problem** analogy. ​This test helps evaluate the randomness of the file. A number of collisions significantly different from the expected number could indicate non-random patterns or redundancy in the data, while a number of collisions close to the expected value suggests a higher degree of randomness.
+11.	**Pi Estimation Using Monte Carlo in 2D**: One of the more intriguing tests in VisualRT is the estimation of π using the contents of the file. The file is interpreted as a series of 6-byte sequences, with the first 3 bytes used as the x-coordinate and the next 3 bytes as the y-coordinate on a 2D plane. The number of points that fall inside a unit circle (with radius 0xFFFFFF) is used to estimate π, drawing from **Monte Carlo** methods. The closer the estimate is to the true value of π, the more uniform the distribution of bytes in the file might be.
+12.	**Pi Estimation Using Monte Carlo in 3D**: Similar to the 2D version, this test uses triplets of adjacent bytes to estimate π\piπ in three dimensions (sphere), adding an extra layer of complexity and accuracy to the π\piπ approximation.
+13.	**Mean of All Adjacent Byte Pairs**: This test computes the mean value of every pair of adjacent bytes, providing insight into how consecutive byte values are related. For a file with a truly random byte distribution, the expected average should approach 32767.5, which is the midpoint of the possible 16-bit range. Deviations from this expected average can indicate non-random patterns or structured data, helping to assess the file's randomness level.
+14.	**Number of Collisions of 4-Byte Sequences**: This test analyzes the file by dividing it into 4-byte sequences and counting how many times each sequence appears (collisions). Each 4-byte sequence is treated as a unique 32-bit value, with possible values ranging from 0 to 2<sup>32</sup>-1. For a file with a completely random byte distribution, the expected number of collisions can be estimated using the **birthday problem** analogy. ​This test helps evaluate the randomness of the file. A number of collisions significantly different from the expected number could indicate non-random patterns or redundancy in the data, while a number of collisions close to the expected value suggests a higher degree of randomness.
 
 ### Highlighting outliers
 If the results of the tests fall outside a threshold or range deemed appropriate for a uniform byte distribution, they are highlighted in red. This visual cue helps users quickly identify irregularities or deviations from expected randomness in the file's data.
