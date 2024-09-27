@@ -36,7 +36,13 @@ If the results of the tests fall outside a threshold or range deemed appropriate
 In order to have a text version of the test results, VisualRT also prints the values ​​to the standard output.
 
 ## Visual fingerprint
-**VisualRT** also includes a graphical panel that provides a visual **"fingerprint"** of the file's byte content. This square panel, with adjustable dimensions limited by the screen size, displays the byte value distribution, offering a visual representation of potential patterns in the data. These patterns might indicate non-uniform distributions that could go unnoticed by statistical indices alone. Additionally, the panel includes a contrast adjustment feature, allowing users to amplify subtle, nearly imperceptible patterns, providing deeper insight into the structure of the file’s content.
+**VisualRT** also includes a graphical panel that provides a visual **"fingerprint"** of the file's byte content. This square panel, with adjustable dimensions limited by the screen size, displays the byte value distribution, offering a visual representation of potential patterns in the data. These patterns might indicate non-uniform distributions that could go unnoticed by statistical indices alone. Additionally, the panel includes a contrast adjustment feature, allowing users to amplify subtle, nearly imperceptible patterns, providing deeper insight into the structure of the file’s content.<br>
+Here are some examples of visual imprint of some file types, where the patterns are highlighted.
+
+|File ASCII txt|File Windows .exe|
+|:--- |:--- |
+|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/ASCII_txt_file.png)|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/typical_windows_exe.png)|
+
 
 ## Conclusion
 VisualRT provides a comprehensive suite of statistical and visual tools for analyzing the randomness and structure of a file's data. By combining traditional statistical measures (like variance and chi-square) with entropy calculations and even a unique approach to estimating π, it offers deep insights into the byte distribution, helping to evaluate the file’s compressibility, predictability, and overall randomness. Whether for cryptographic evaluation or data analysis, VisualRT is a powerful tool for assessing the underlying characteristics of any binary data.
