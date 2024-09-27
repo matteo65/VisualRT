@@ -7,7 +7,7 @@ It also allows you to view the "fingerprint" of the file, a sort of hash value i
 ## Statistical tests
 VisualRT conducts a total of 14 tests, which are divided into two main categories: frequency-based tests that ignore byte positions and tests that depend on the distribution of bytes.
 
-###A) First Group: Byte Frequency Tests
+### A) First Group: Byte Frequency Tests
 This group focuses on analyzing the frequency of byte occurrences within the data, without considering the order in which the bytes appear. These tests are designed to assess various statistical properties of the byte frequency. The tests in this group are:
 
 1.	**Minimum Frequency**: This test measures the smallest frequency of any byte in the data, indicating which byte has the least occurrences.
