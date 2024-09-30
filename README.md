@@ -30,7 +30,7 @@ The second group of tests examines the actual distribution of bytes within the d
 14.	**Number of Collisions of 4-Byte Sequences**: This test analyzes the file by dividing it into 4-byte sequences and counting how many times each sequence appears (collisions). Each 4-byte sequence is treated as a unique 32-bit value, with possible values ranging from 0 to 2<sup>32</sup>-1. For a file with a completely random byte distribution, the expected number of collisions can be estimated using the **birthday problem** analogy. ​This test helps evaluate the randomness of the file. A number of collisions significantly different from the expected number could indicate non-random patterns or redundancy in the data, while a number of collisions close to the expected value suggests a higher degree of randomness.
 
 ### Highlighting outliers
-If the results of the tests fall outside a threshold or range deemed appropriate for a uniform byte distribution, they are highlighted in red. This visual cue helps users quickly identify irregularities or deviations from expected randomness in the file's data.
+If the results of the tests fall outside a threshold or range deemed appropriate for a uniform byte distribution, they are highlighted in red. Thresholds have been set for files longer than 100K, lower values ​​may not be adequate. This visual cue helps users quickly identify irregularities or deviations from expected randomness in the file's data.
 
 ### Print result on stdout
 In order to have a text version of the test results, VisualRT also prints the values ​​to the standard output.
