@@ -52,7 +52,7 @@ Here are some examples of visual imprint of some file types, where the patterns 
 |![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/file_mp3.png)|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/zip_multi_file.png)|
 
 ## Requirements
-**Compile**: java 1.8 or higher
+**Compile**: java 1.8 or higher.
 **Run**: java -jar visualrt.jar
 
 ## Conclusion
