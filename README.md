@@ -51,8 +51,9 @@ Here are some examples of visual imprint of some file types, where the patterns 
 |:--- |:--- |
 |![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/file_mp3.png)|![Alt Text](https://raw.githubusercontent.com/matteo65/VisualRT/main/Resource/zip_multi_file.png)|
 
-
-
+## Requirements
+**Compile**: java 1.8 or higher
+**Run**: java -jar visualrt.jar
 
 ## Conclusion
 VisualRT provides a comprehensive suite of statistical and visual tools for analyzing the randomness and structure of a file's data. By combining traditional statistical measures (like variance and chi-square) with entropy calculations and even a unique approach to estimating π, it offers deep insights into the byte distribution, helping to evaluate the file’s compressibility, predictability, and overall randomness. Whether for cryptographic evaluation or data analysis, VisualRT is a powerful tool for assessing the underlying characteristics of any binary data.
