@@ -64,8 +64,6 @@ public class VisualRTPanel extends JPanel {
 	
 	private final Color defaultForeground;
 	
-	private JLabel randomTxt = new JLabel();
-	
 	public VisualRTPanel() {
 		setLayout(null);
 		defaultForeground = filePathFieldTxt.getForeground();
@@ -292,9 +290,6 @@ public class VisualRTPanel extends JPanel {
         collisionsExpTxt.setHorizontalAlignment(SwingConstants.RIGHT);
         collisionsExpTxt.setBounds(140, 655, 90, 21);
         add(collisionsExpTxt);
-        
-        randomTxt.setBounds(40, 680, 300, 30);
-        add(randomTxt);
 	}
 
 	@Override
@@ -500,8 +495,6 @@ public class VisualRTPanel extends JPanel {
 		
 		double standard_deviation = Math.sqrt(variance);
 		
-		boolean probablyRandom = true;
-		
 		System.out.println("File name = " + file.getName());
 		System.out.println("File length = " + file.length());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -515,7 +508,6 @@ public class VisualRTPanel extends JPanel {
 			System.out.println(" [*** anomaly]");
 			minByteFreqTxt.setForeground(Color.RED);
 			minByteFreqTxt.setToolTipText("*** Anomaly: |min value| > 6% of average value");
-			probablyRandom = false;
 		}
 		else {
 			minByteFreqTxt.setForeground(defaultForeground);
@@ -529,7 +521,6 @@ public class VisualRTPanel extends JPanel {
 			System.out.println(" [*** anomaly]");
 			maxByteFreqTxt.setForeground(Color.RED);
 			maxByteFreqTxt.setToolTipText("*** Anomaly: |max value| > 6% of average value");
-			probablyRandom = false;
 		}
 		else {
 			maxByteFreqTxt.setForeground(defaultForeground);
@@ -557,7 +548,6 @@ public class VisualRTPanel extends JPanel {
 			System.out.println(" [*** anomaly]");
 			coefVarTxt.setForeground(Color.RED);
 			coefVarTxt.setToolTipText("*** Anomaly: value > 1.9%");
-			probablyRandom = false;
 		}
 		else {
 			coefVarTxt.setForeground(defaultForeground);
@@ -575,7 +565,6 @@ public class VisualRTPanel extends JPanel {
 			System.out.println(" [*** anomaly]");
 			avgBytesValue.setForeground(Color.RED);
 			avgBytesValue.setToolTipText("*** Anomaly: average < 127.1 or average > 127.9");
-			probablyRandom = false;
 		}
 		else {
 			avgBytesValue.setForeground(defaultForeground);
@@ -589,7 +578,6 @@ public class VisualRTPanel extends JPanel {
 			System.out.println(" [*** anomaly]");
 			entropyTxt.setForeground(Color.RED);
 			entropyTxt.setToolTipText("*** Anomaly: entropy < 7.99");
-			probablyRandom = false;
 		}
 		else {
 			entropyTxt.setForeground(defaultForeground);
@@ -605,7 +593,6 @@ public class VisualRTPanel extends JPanel {
 			System.out.println(" [*** anomaly]");
 			compressedLen.setForeground(Color.RED);
 			compressedLen.setToolTipText("*** Anomaly: possible len less than file length");
-			probablyRandom = false;
 		}
 		else {
 			compressedLen.setForeground(defaultForeground);
@@ -626,7 +613,6 @@ public class VisualRTPanel extends JPanel {
     			String tooltip = "*** Anomaly: error > 0.4%";
     			monteCarloPi2DErr.setToolTipText(tooltip);
     			monteCarloPi2D.setToolTipText(tooltip);
-    			probablyRandom = false;
     		}
     		else {
     			monteCarloPi2D.setForeground(defaultForeground);
@@ -659,7 +645,6 @@ public class VisualRTPanel extends JPanel {
     			String tooltip = "*** Anomaly: error > 0.4%";
     			monteCarloPi3DErr.setToolTipText(tooltip);
     			monteCarloPi3D.setToolTipText(tooltip);
-    			probablyRandom = false;
     		}
     		else {
     			monteCarloPi3D.setForeground(defaultForeground);
@@ -684,14 +669,13 @@ public class VisualRTPanel extends JPanel {
 			avgPairBytesTxt.setText(round(apb));
 			avgPairBytesErrTxt.setText(round(apb_err) + "%");
 			System.out.print("Average of Contiguous Byte Pairs = " + sumPairBytes / (filelen - 1) + " (32767.5 random) (error " + apb_err + "%)");
-			if(apb_err > 0.03) {
+			if(apb_err > 0.05) {
 				System.out.println(" [*** anomaly]");
 				avgPairBytesTxt.setForeground(Color.RED);
 				avgPairBytesErrTxt.setForeground(Color.RED);
 				String tooltip = "*** Anomaly: error > 3%";
 				avgPairBytesTxt.setToolTipText(tooltip);
 				avgPairBytesErrTxt.setToolTipText(tooltip);
-				probablyRandom = false;
 			}
 			else {
 				avgPairBytesTxt.setForeground(defaultForeground);
@@ -717,7 +701,6 @@ public class VisualRTPanel extends JPanel {
 			System.out.println(" [*** anomaly]");
 			collisionsTxt.setForeground(Color.RED);
 			collisionsTxt.setToolTipText("*** Anomaly: collisions < " + (long)Math.floor(collsExp * 0.9 - 1) + " or collisions > " + (long)Math.floor(collsExp * 1.1 + 1));
-			probablyRandom = false;
 		}
 		else {
 			collisionsTxt.setForeground(defaultForeground);
@@ -727,22 +710,6 @@ public class VisualRTPanel extends JPanel {
 		
 		collisionsExpTxt.setText(round(collsExp));
 	
-		if(filelen > 100000.0d) {
-			// Write result only if the file length is > 100 kB
-    		String text;
-        	if(probablyRandom) {
-        	   	text = "Probably (pseudo-)random";
-        	}
-        	else {
-        	   	text = "Non-random";
-        	}
-        	System.out.println("Result = " + text);
-        	randomTxt.setText("<html><h3>" + text + "</h3></html>");
-		}
-		else {
-			// Otherwise, writes nothing
-			randomTxt.setText("                           ");
-		}
 		System.out.println();
 		setCursor(Cursor.getDefaultCursor());
 	}
